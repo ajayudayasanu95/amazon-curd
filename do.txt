@@ -1,0 +1,37 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Business_object_layer
+{
+   public class product_details_BO
+    {
+        private int _productID;
+        private string _ProductName;
+        private int _productRate;
+        private int _quantity;
+        private string _description;
+        public int ProductID {
+            get { return _productID; }
+            set { _productID = value; }
+        }
+        public string ProductName {
+            get { return _ProductName; }
+            set { _ProductName = value; }
+        }
+        public int ProductRate {
+            get { return _productRate; }
+            set { _productRate = value; }
+        }
+        public int ProductQty {
+            get { return _quantity; }
+            set { _quantity = value; }
+        }
+        public string Description {
+            get { return _description; }
+            set { _description = value; }
+        }
+    }
+}

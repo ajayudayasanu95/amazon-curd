@@ -1,0 +1,75 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using Business_object_layer;
+using System.Data.SqlClient;
+using System.Data;
+
+namespace Data_access_layer
+{
+  public  class Product_details_DAL
+    {
+        public void Save_product_details(product_details_BO objbo )
+            
+        {
+            string constring = "Data Source=DESKTOP-EN3OQ96;Initial Catalog=Amazon;User ID=sa;Password=sa";
+            SqlConnection con = new SqlConnection(constring);
+            con.Open();
+            SqlCommand cmd = new SqlCommand("Save_product", con);
+            cmd.CommandType = CommandType.StoredProcedure;
+
+            cmd.Parameters.AddWithValue("@proID", objbo.ProductID);
+            cmd.Parameters.AddWithValue("@ProName", objbo.ProductName);
+            cmd.Parameters.AddWithValue("@ProRate", objbo.ProductRate);
+            cmd.Parameters.AddWithValue("@ProQty", objbo.ProductQty);
+            cmd.Parameters.AddWithValue("@description", objbo.Description);
+            SqlParameter employeeID = new SqlParameter("@ProductID", SqlDbType.Int);
+            employeeID.Direction = ParameterDirection.Output;
+            cmd.Parameters.Add(employeeID);
+            int noofrow = cmd.ExecuteNonQuery();
+            con.Close();
+            if(noofrow>0)
+            {
+                objbo.ProductID = Convert.ToInt32(cmd.Parameters["@ProductID"].Value);
+            }
+            else
+            {
+                objbo.ProductID = -1;
+            }
+
+        }
+        public List<product_details_BO> Get_product_all(int empid)
+        {
+            List<product_details_BO> obj_pro_list = new List<product_details_BO>();
+            string constring = "Data Source=DESKTOP-EN3OQ96;Initial Catalog=Amazon;User ID=sa;Password=sa";
+            SqlConnection con = new SqlConnection(constring);
+            con.Open();
+            SqlCommand cmd = new SqlCommand("View_all_product", con);
+            cmd.CommandType = CommandType.StoredProcedure;           
+            DataSet dsdata = new DataSet();
+            SqlDataAdapter objadapter = new SqlDataAdapter(cmd);
+            objadapter.Fill(dsdata);
+            con.Close();
+            if (dsdata != null)
+            {
+                if(dsdata.Tables.Count>0)
+                {
+                    foreach(DataRow dtprodtls in dsdata.Tables[0].Rows)
+                    {
+                        product_details_BO objproduct = new product_details_BO();
+                        objproduct.ProductID = Convert.ToInt32(dtprodtls["Proid"]);
+                        objproduct.ProductName = Convert.ToString(dtprodtls["Proname"]);
+                        objproduct.ProductRate = Convert.ToInt32(dtprodtls["Prorate"]);
+                        objproduct.ProductQty = Convert.ToInt32(dtprodtls["qty"]);
+                        objproduct.Description = Convert.ToString(dtprodtls["description"]);
+                        obj_pro_list.Add(objproduct);
+                    }
+                }
+            }
+
+            return obj_pro_list;
+        }
+    }
+}
