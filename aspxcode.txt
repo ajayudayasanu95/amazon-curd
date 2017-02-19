@@ -1,0 +1,108 @@
+<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="add_new _products.aspx.cs" Inherits="Amazon_product_Management.add_new__products" %>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title>add new product</title>
+    <style type="text/css">
+        .auto-style1 {
+            width: 303px;
+        }
+        .auto-style2 {
+            height: 26px;
+            width: 224px;
+        }
+        .auto-style3 {
+            width: 303px;
+            height: 26px;
+        }
+        .auto-style4 {
+            width: 224px;
+        }
+        h1{
+            color:brown;
+        }
+        h2{
+            color:coral;
+        }
+    </style>
+</head>
+<body>
+    <form id="form1" runat="server">
+    <div>
+        <h1 style="margin-left: 160px">Welcome to Amazon </h1>
+   <h2 style="margin-left: 200px">product adding facility</h2>
+    <table>
+        <tr>
+            <td class="auto-style2">
+               &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;  <asp:Label ID="Label1" runat="server" Text="ID of product"></asp:Label>
+
+            </td>
+            <td class="auto-style3">
+               &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; <asp:TextBox ID="txtID" Enabled="false" runat="server" Width="210px"></asp:TextBox>
+            </td> 
+        </tr>
+
+         <tr>
+            <td class="auto-style4">
+             &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;   <asp:Label ID="Label2" runat="server" Text="Name of product"></asp:Label>
+
+            </td>
+            <td class="auto-style1">
+            &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;    <asp:TextBox ID="txtName" runat="server" Height="16px" Width="212px"></asp:TextBox>
+            </td>
+        </tr>
+
+         <tr>
+            <td class="auto-style4">
+             &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;   <asp:Label ID="Label3" runat="server" Text="rate of product"></asp:Label>
+
+            </td>
+            <td class="auto-style1">
+            &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;    <asp:TextBox ID="txtRate" runat="server" Width="213px"></asp:TextBox>
+            </td>
+        </tr>
+         <tr>
+            <td class="auto-style4">
+            &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;    <asp:Label ID="Label4" runat="server" Text="quantity of product"></asp:Label>
+
+            </td>
+            <td class="auto-style1">
+           &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;     <asp:TextBox ID="txtQty" runat="server" Width="213px"></asp:TextBox>
+            </td>
+        </tr>
+         <tr>
+            <td class="auto-style4">
+          &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;      <asp:Label ID="Label5" runat="server" Text="Description of product"></asp:Label>
+
+            </td>
+            <td class="auto-style1">
+           &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;     <asp:TextBox ID="TxtxDescription" runat="server" Width="207px"></asp:TextBox>
+            </td>
+        </tr>
+         <tr>
+            <td class="auto-style4">
+               
+
+            </td>
+            <td class="auto-style1">
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <asp:Button ID="Button1" runat="server" Text="submit" BackColor="#00CC66" ForeColor="White" Height="42px" Width="69px" OnClick="Button1_Click" />
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <asp:Button ID="Button2" runat="server" BackColor="Red" ForeColor="White" Height="42px" style="margin-top: 0px" Text="reset" Width="70px" />
+            </td>
+        </tr>
+         <tr>
+            <td class="auto-style4">
+               
+
+                &nbsp;</td>
+            <td class="auto-style1">
+                &nbsp;</td>
+        </tr>
+    </table>
+    </div>
+    </form>
+</body>
+</html>

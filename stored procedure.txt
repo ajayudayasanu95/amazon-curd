@@ -1,0 +1,31 @@
+USE [Amazon]
+GO
+/****** Object:  StoredProcedure [dbo].[Save_product]    Script Date: 19-Feb-17 11:04:03 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+
+ALTER PROCEDURE  [dbo].[Save_product]
+(
+@proID int,
+@ProName varchar(50),
+@ProRate varchar(50),
+@ProQty int,
+@description varchar(50),
+@ProductID int out
+) 
+	
+AS
+BEGIN
+	if @proID=0
+	begin
+	insert into product_details(Proname,Prorate,qty,description) values (@ProName,@ProRate,@ProQty,@description)
+	set @ProductID= @@IDENTITY
+	end
+	else
+	begin
+	update product_details set Proname=@ProName, Prorate=@ProRate, qty=@ProQty, description=@description
+	where Proid=@proID;
+	end
+END

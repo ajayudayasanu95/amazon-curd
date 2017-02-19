@@ -1,0 +1,16 @@
+USE [Amazon]
+GO
+/****** Object:  StoredProcedure [dbo].[View_all_product]    Script Date: 19-Feb-17 11:04:53 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+
+ALTER PROCEDURE [dbo].[View_all_product]
+(
+@proID int
+)
+AS
+BEGIN
+select * from product_details 
+END
